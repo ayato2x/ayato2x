@@ -1,99 +1,73 @@
-<div align="center">
+<img src="./assets/hero.svg" alt="Ayato — full-stack developer" width="100%" />
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0F2027,50:203A43,100:2C5364&height=200&section=header&text=Ayato&fontSize=70&fontColor=ffffff&animation=fadeIn&fontAlignY=35&desc=Full-Stack%20Developer&descAlignY=55&descSize=18" width="100%" />
+### Hey, I'm Ayato
 
-<a href="https://github.com/ayato2x">
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&duration=3000&pause=800&color=58A6FF&center=true&vCenter=true&width=560&lines=Full-Stack+Developer;Front-end+%2B+Back-end+%2B+everything+between;I+ship+things+that+actually+work" alt="Typing SVG" />
-</a>
+I build web applications end to end — the interface people click, the API behind it,
+and the database underneath. I care more about software that holds up in production
+than software that demos well.
 
-</div>
-
----
-
-### About Me
-
-```yaml
-name:      Ayato
-role:      Full-Stack Developer
-frontend:  [ React, JavaScript, Tailwind CSS ]
-backend:   [ Node.js, Express, REST APIs ]
-database:  [ MongoDB, MySQL ]
-learning:  [ TypeScript, Docker, System Design ]
-motto:     "Make it work, make it right, make it fast."
-```
-
-- I build **complete web applications** — from the interface all the way down to the database
-- Open to collaborating on **open-source projects**
-- Reach me at **(ahmed77m6op@gmail.com‏
-)**
-
----
-
-### Tech Stack
-
-<div align="center">
-
-**Front-End**<br/>
-<img src="https://skillicons.dev/icons?i=html,css,js,react,tailwind&theme=dark" />
-
-**Back-End & Database**<br/>
-<img src="https://skillicons.dev/icons?i=nodejs,express,mongodb,mysql&theme=dark" />
-
-**Tools**<br/>
-<img src="https://skillicons.dev/icons?i=git,github,vscode,postman,linux&theme=dark" />
-
-</div>
-
----
-
-### Connect
-
-<div align="center">
-
-<a href="https://linkedin.com/in/YOUR_LINKEDIN"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" /></a>
-<a href="mailto:your@email.com"><img src="https://img.shields.io/badge/Email-EA4335?style=for-the-badge&logo=gmail&logoColor=white" /></a>
-
-</div>
-
-<!--
-============================================================
-  لا تفعّل القسم ده غير بعد ما يبقى عندك 3 مشاريع على الأقل
-  ومساهمات على مدار أسابيع. قبل كده هيبان فاضي وهيضرك.
-
-  للتفعيل: امسح سطر فتح التعليق اللي تحت السطور دي مباشرة،
-  وسطر قفل التعليق اللي قبل الـ footer في اخر الملف.
-============================================================
-
-### GitHub Stats
-
-<div align="center">
-
-<img height="165" src="https://github-readme-stats.vercel.app/api?username=ayato2x&show_icons=true&theme=github_dark&hide_border=true&bg_color=0D1117&title_color=58A6FF&icon_color=58A6FF&text_color=C9D1D9&include_all_commits=true&count_private=true" />
-<img height="165" src="https://github-readme-stats.vercel.app/api/top-langs/?username=ayato2x&layout=compact&theme=github_dark&hide_border=true&bg_color=0D1117&title_color=58A6FF&text_color=C9D1D9&langs_count=8" />
+Right now I'm deepening my backend work: authentication done properly, APIs that fail
+gracefully, and schemas designed before the first line of code.
 
 <br/>
 
-<img src="https://github-readme-streak-stats.herokuapp.com/?user=ayato2x&theme=github-dark-blue&hide_border=true&background=0D1117&stroke=58A6FF&ring=58A6FF&fire=58A6FF&currStreakLabel=58A6FF" />
+<img src="./assets/stack.svg" alt="Request flow: client to API to database" width="100%" />
 
-</div>
+<br/>
 
-### Featured Projects
+<details>
+<summary><b>What I actually reach for, and why</b></summary>
+<br/>
 
-<div align="center">
+| Layer | Tools | Why |
+|---|---|---|
+| **Interface** | React, TypeScript, Tailwind | Components stay honest when types stop me guessing what a prop holds. |
+| **API** | Node, Express | One language across the stack. Less context switching, faster iteration. |
+| **Data** | MongoDB, Mongoose | Flexible schemas while requirements are still moving. |
+| **Auth** | JWT, bcrypt | Tokens with real expiry, passwords never stored in plain text. |
+| **Ship it** | Vercel, Render, Atlas | Every project gets a live URL. Code nobody can click doesn't count. |
 
-<a href="https://github.com/ayato2x/REPO_ONE">
-  <img src="https://github-readme-stats.vercel.app/api/pin/?username=ayato2x&repo=REPO_ONE&theme=github_dark&hide_border=true&bg_color=0D1117&title_color=58A6FF&text_color=C9D1D9" />
-</a>
-<a href="https://github.com/ayato2x/REPO_TWO">
-  <img src="https://github-readme-stats.vercel.app/api/pin/?username=ayato2x&repo=REPO_TWO&theme=github_dark&hide_border=true&bg_color=0D1117&title_color=58A6FF&text_color=C9D1D9" />
-</a>
+Not on this list: anything I've only read a tutorial about.
 
-</div>
+</details>
 
--->
+<details>
+<summary><b>How I work</b></summary>
+<br/>
 
-<div align="center">
+- **Schema before syntax.** I map the data model before writing routes. Changing a schema in week three is expensive; changing it on paper is free.
+- **Errors are a feature.** Loading states, empty states, and failure states get built alongside the happy path, not bolted on after.
+- **Small commits, real messages.** `add token refresh on 401` tells a story. `update` tells nothing.
+- **Deployed or it didn't happen.** Every project ends with a URL, not a zip file.
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:2C5364,50:203A43,100:0F2027&height=120&section=footer" width="100%" />
+</details>
 
-</div>
+<details>
+<summary><b>What I'm learning next</b></summary>
+<br/>
+
+- **TypeScript on the backend** — same safety I get in React, applied to routes and models
+- **Docker** — so "works on my machine" stops being a sentence I say
+- **System design** — caching, rate limiting, and what actually breaks under load
+
+</details>
+
+<br/>
+
+### Projects
+
+Building these now — each one deployed with a live link when it lands.
+
+| Project | What it does | Stack |
+|---|---|---|
+| _in progress_ | Task manager with real auth — accounts, sessions, per-user data | React · Express · MongoDB |
+| _planned_ | API-driven dashboard with proper loading and error states | React · REST |
+| _planned_ | Real-time chat over WebSockets | Node · Socket.IO |
+
+<br/>
+
+### Reach me
+
+Open an issue on any repo, or find me through the links on my profile.
+
+<sub>Open to collaborating on open-source — if you maintain something and need hands, say hi.</sub>
