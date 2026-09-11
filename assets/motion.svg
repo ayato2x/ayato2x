@@ -1,0 +1,126 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 260" width="1200" height="260"
+     role="img" aria-label="Four looping motion studies: a morphing shape, an orbit with a trail, a wave field, and a self-drawing stroke.">
+  <title>Motion studies</title>
+
+  <defs>
+    <linearGradient id="mbg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%"   stop-color="#1B2018"/>
+      <stop offset="100%" stop-color="#151913"/>
+    </linearGradient>
+
+    <linearGradient id="trail" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%"   stop-color="#CDE2F5" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#CDE2F5" stop-opacity="0.9"/>
+    </linearGradient>
+
+    <clipPath id="mframe"><rect width="1200" height="260" rx="10"/></clipPath>
+
+    <style>
+      .lbl { font-family: ui-monospace,'Cascadia Mono',Menlo,Consolas,monospace;
+             font-size: 9.5px; letter-spacing: 2.6px; fill: #8EA1A8; fill-opacity: .55; }
+      .in2 { animation: in2 .7s ease-out backwards; }
+      @keyframes in2 { from { opacity: 0; transform: translateY(8px); } }
+
+      /* study 3 — a field of rules that undulate out of phase */
+      .wv { animation: wv 3.4s ease-in-out infinite; transform-origin: center; }
+      @keyframes wv { 0%,100% { transform: scaleY(.25) } 50% { transform: scaleY(1) } }
+
+      /* study 4 — one continuous stroke that keeps redrawing itself */
+      .scribble { stroke-dasharray: 620; animation: scribble 4.5s ease-in-out infinite; }
+      @keyframes scribble {
+        0%   { stroke-dashoffset: 620; }
+        45%  { stroke-dashoffset: 0; }
+        55%  { stroke-dashoffset: 0; }
+        100% { stroke-dashoffset: -620; }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .in2,.wv,.scribble { animation: none; }
+        .scribble { stroke-dashoffset: 0; }
+        .hide-still { display: none; }
+      }
+    </style>
+  </defs>
+
+  <g clip-path="url(#mframe)">
+    <rect width="1200" height="260" fill="url(#mbg)"/>
+
+    <g class="in2">
+      <text x="70" y="44" class="lbl" fill="#9A9F5D" fill-opacity="1">MOTION STUDIES</text>
+      <line x1="216" y1="39" x2="1130" y2="39" stroke="#CDE2F5" stroke-opacity="0.12"/>
+    </g>
+
+    <!-- ── 01 · shape morph ─────────────────────────────────────── -->
+    <g transform="translate(150 148)">
+      <path fill="none" stroke="#CDE2F5" stroke-opacity="0.9" stroke-width="2.2"
+            stroke-linejoin="round"
+            d="M0 -52 C 28.7 -52 52 -28.7 52 0 C 52 28.7 28.7 52 0 52 C -28.7 52 -52 28.7 -52 0 C -52 -28.7 -28.7 -52 0 -52Z">
+        <animate attributeName="d" dur="7s" repeatCount="indefinite"
+          keyTimes="0;0.25;0.5;0.75;1"
+          values="
+            M0 -52 C 28.7 -52 52 -28.7 52 0 C 52 28.7 28.7 52 0 52 C -28.7 52 -52 28.7 -52 0 C -52 -28.7 -28.7 -52 0 -52Z;
+            M-46 -46 C -15 -46 15 -46 46 -46 C 46 -15 46 15 46 46 C 15 46 -15 46 -46 46 C -46 15 -46 -15 -46 -46Z;
+            M0 -54 C 18 -22 31 0 47 28 C 16 28 -16 28 -47 28 C -31 0 -18 -22 0 -54Z;
+            M6 -50 C 40 -44 58 -12 44 16 C 30 44 -8 58 -34 40 C -60 22 -54 -18 -32 -38 C -20 -49 -8 -52 6 -50Z;
+            M0 -52 C 28.7 -52 52 -28.7 52 0 C 52 28.7 28.7 52 0 52 C -28.7 52 -52 28.7 -52 0 C -52 -28.7 -28.7 -52 0 -52Z"/>
+      </path>
+      <circle r="3" fill="#9A9F5D">
+        <animate attributeName="r" dur="7s" repeatCount="indefinite"
+                 keyTimes="0;0.5;1" values="3;7;3"/>
+      </circle>
+    </g>
+    <text x="150" y="232" text-anchor="middle" class="lbl">٠١ · MORPH</text>
+
+    <!-- ── 02 · orbit with a trailing arc ───────────────────────── -->
+    <g transform="translate(430 148)">
+      <circle r="52" fill="none" stroke="#CDE2F5" stroke-opacity="0.14" stroke-width="1"/>
+      <circle r="30" fill="none" stroke="#CDE2F5" stroke-opacity="0.09" stroke-width="1"/>
+
+      <!-- the trail: an arc whose length pulses as the dot swings round -->
+      <g>
+        <animateTransform attributeName="transform" type="rotate"
+                          from="0" to="360" dur="4.6s" repeatCount="indefinite"/>
+        <path d="M52 0 A52 52 0 0 0 -26 -45" fill="none" stroke="url(#trail)"
+              stroke-width="2.4" stroke-linecap="round" stroke-opacity="0.8"/>
+        <circle cx="52" cy="0" r="5" fill="#CDE2F5"/>
+      </g>
+
+      <!-- inner body, counter-rotating and slower -->
+      <g>
+        <animateTransform attributeName="transform" type="rotate"
+                          from="360" to="0" dur="7.4s" repeatCount="indefinite"/>
+        <circle cx="30" cy="0" r="3.4" fill="#9A9F5D"/>
+      </g>
+      <circle r="4" fill="#575E30"/>
+    </g>
+    <text x="430" y="232" text-anchor="middle" class="lbl">٠٢ · ORBIT</text>
+
+    <!-- ── 03 · wave field ──────────────────────────────────────── -->
+    <g transform="translate(710 148)" stroke="#9A9F5D" stroke-width="3" stroke-linecap="round">
+      <line class="wv" x1="-66" y1="-42" x2="-66" y2="42" style="animation-delay:0s"    stroke-opacity=".85"/>
+      <line class="wv" x1="-44" y1="-42" x2="-44" y2="42" style="animation-delay:.14s"  stroke-opacity=".8"/>
+      <line class="wv" x1="-22" y1="-42" x2="-22" y2="42" style="animation-delay:.28s"  stroke-opacity=".75"/>
+      <line class="wv" x1="0"   y1="-42" x2="0"   y2="42" style="animation-delay:.42s"  stroke-opacity=".7" stroke="#CDE2F5"/>
+      <line class="wv" x1="22"  y1="-42" x2="22"  y2="42" style="animation-delay:.56s"  stroke-opacity=".75"/>
+      <line class="wv" x1="44"  y1="-42" x2="44"  y2="42" style="animation-delay:.70s"  stroke-opacity=".8"/>
+      <line class="wv" x1="66"  y1="-42" x2="66"  y2="42" style="animation-delay:.84s"  stroke-opacity=".85"/>
+    </g>
+    <text x="710" y="232" text-anchor="middle" class="lbl">٠٣ · WAVE</text>
+
+    <!-- ── 04 · a stroke that draws, holds, then unwinds ─────────── -->
+    <g transform="translate(990 148)">
+      <path class="scribble" fill="none" stroke="#CDE2F5" stroke-opacity="0.85"
+            stroke-width="2.4" stroke-linecap="round"
+            d="M-70 24 C -52 -34, -14 -44, -6 -8 C 2 28, -26 44, -34 18
+               C -42 -8, -6 -46, 26 -34 C 58 -22, 62 22, 34 34 C 14 43, -4 38, 4 24"/>
+      <path class="hide-still" fill="none" stroke="#9A9F5D" stroke-opacity="0.35"
+            stroke-width="1.2" stroke-dasharray="3 5"
+            d="M-70 24 C -52 -34, -14 -44, -6 -8 C 2 28, -26 44, -34 18
+               C -42 -8, -6 -46, 26 -34 C 58 -22, 62 22, 34 34 C 14 43, -4 38, 4 24"/>
+    </g>
+    <text x="990" y="232" text-anchor="middle" class="lbl">٠٤ · DRAW</text>
+
+    <rect x=".5" y=".5" width="1199" height="259" rx="10" fill="none"
+          stroke="#CDE2F5" stroke-opacity="0.14"/>
+  </g>
+</svg>
