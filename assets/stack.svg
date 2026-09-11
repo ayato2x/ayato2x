@@ -1,81 +1,114 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 230" width="900" height="230" role="img" aria-label="request flow: client to API to database">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 210" width="1200" height="210"
+     role="img" aria-label="One request travelling from the browser through the API and validation to the database, and the response coming back.">
+  <title>What one request touches</title>
+
   <defs>
-    <linearGradient id="sbg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#0B0F14"/><stop offset="100%" stop-color="#0A0E13"/>
+    <linearGradient id="bg3" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#061109"/>
+      <stop offset="50%" stop-color="#0A1C12"/>
+      <stop offset="100%" stop-color="#061109"/>
     </linearGradient>
-    <clipPath id="scard"><rect width="900" height="230" rx="14"/></clipPath>
-    <filter id="sglow" x="-100%" y="-100%" width="300%" height="300%">
-      <feGaussianBlur stdDeviation="3"/>
+
+    <filter id="grain3" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="3" stitchTiles="stitch"/>
+      <feColorMatrix type="saturate" values="0"/>
     </filter>
+
+    <clipPath id="card3"><rect width="1200" height="210" rx="10"/></clipPath>
+
+    <!-- the line the request actually travels -->
+    <path id="wire" d="M150 118 H420 M480 118 H720 M780 118 H1050"/>
+
+    <style>
+      .f3 { animation: f3 .7s ease-out backwards; }
+      @keyframes f3 { from { opacity: 0; transform: translateY(8px); } }
+      @media (prefers-reduced-motion: reduce) {
+        .f3 { animation: none; }
+        .pkt { display: none; }
+      }
+    </style>
   </defs>
 
-  <g clip-path="url(#scard)" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">
-    <rect width="900" height="230" fill="url(#sbg)"/>
-    <text x="32" y="38" fill="#6E7681" font-size="13" letter-spacing="1.5">HOW I BUILD</text>
+  <g clip-path="url(#card3)">
+    <rect width="1200" height="210" fill="url(#bg3)"/>
 
-    <!-- wires -->
-    <line x1="272" y1="132" x2="338" y2="132" stroke="#1F2630" stroke-width="2"/>
-    <line x1="562" y1="132" x2="628" y2="132" stroke="#1F2630" stroke-width="2"/>
+    <g class="f3">
+      <text x="70" y="46" font-family="ui-monospace,'Cascadia Mono',Menlo,Consolas,monospace"
+            font-size="11.5" letter-spacing="3.4" fill="#17B95E">٠٢</text>
+      <line x1="96" y1="41" x2="132" y2="41" stroke="#F6F4ED" stroke-opacity="0.28"/>
+      <text x="146" y="46" font-family="ui-monospace,'Cascadia Mono',Menlo,Consolas,monospace"
+            font-size="11.5" letter-spacing="3.4" fill="#F6F4ED" fill-opacity="0.5">WHAT ONE REQUEST TOUCHES</text>
+    </g>
+    <line x1="70" y1="62" x2="1130" y2="62" stroke="#F6F4ED" stroke-opacity="0.12"/>
 
-    <!-- request in (blue) / response out (green), looping every 6s -->
-    <circle r="4" cy="132" fill="#58A6FF" filter="url(#sglow)">
-      <animate attributeName="cx" values="272;338;338" keyTimes="0;0.25;1"
-               dur="6s" begin="0s" repeatCount="indefinite"/>
-      <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.02;0.23;0.25;1"
-               dur="6s" begin="0s" repeatCount="indefinite"/>
-    </circle>
-    <circle r="4" cy="132" fill="#58A6FF" filter="url(#sglow)">
-      <animate attributeName="cx" values="562;628;628" keyTimes="0;0.25;1"
-               dur="6s" begin="1.6s" repeatCount="indefinite"/>
-      <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.02;0.23;0.25;1"
-               dur="6s" begin="1.6s" repeatCount="indefinite"/>
-    </circle>
-    <circle r="4" cy="132" fill="#3FB950" filter="url(#sglow)">
-      <animate attributeName="cx" values="628;562;562" keyTimes="0;0.25;1"
-               dur="6s" begin="3.4s" repeatCount="indefinite"/>
-      <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.02;0.23;0.25;1"
-               dur="6s" begin="3.4s" repeatCount="indefinite"/>
-    </circle>
-    <circle r="4" cy="132" fill="#3FB950" filter="url(#sglow)">
-      <animate attributeName="cx" values="338;272;272" keyTimes="0;0.25;1"
-               dur="6s" begin="5s" repeatCount="indefinite"/>
-      <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.02;0.23;0.25;1"
-               dur="6s" begin="5s" repeatCount="indefinite"/>
-    </circle>
-
-    <!-- CLIENT -->
-    <g>
-      <rect x="32" y="76" width="240" height="112" rx="10" fill="#0E141B" stroke="#58A6FF" stroke-opacity="0.35"/>
-      <rect x="32" y="76" width="240" height="112" rx="10" fill="none" stroke="#58A6FF">
-        <animate attributeName="stroke-opacity" values="0;0.7;0" dur="6s" begin="0s" repeatCount="indefinite"/>
-      </rect>
-      <text x="52" y="104" fill="#58A6FF" font-size="11" letter-spacing="1.5">CLIENT</text>
-      <text x="52" y="134" fill="#C9D1D9" font-size="17">React · TypeScript</text>
-      <text x="52" y="160" fill="#6E7681" font-size="14">Tailwind · Vite</text>
+    <!-- the track -->
+    <g stroke="#F6F4ED" stroke-opacity="0.16" stroke-width="1.5" stroke-dasharray="5 6">
+      <path d="M258 118 H420 M540 118 H700 M840 118 H1000"/>
     </g>
 
-    <!-- API -->
-    <g>
-      <rect x="338" y="76" width="224" height="112" rx="10" fill="#0E141B" stroke="#E3B341" stroke-opacity="0.35"/>
-      <rect x="338" y="76" width="224" height="112" rx="10" fill="none" stroke="#E3B341">
-        <animate attributeName="stroke-opacity" values="0;0.7;0" dur="6s" begin="1.5s" repeatCount="indefinite"/>
-      </rect>
-      <text x="358" y="104" fill="#E3B341" font-size="11" letter-spacing="1.5">API</text>
-      <text x="358" y="134" fill="#C9D1D9" font-size="17">Node · Express</text>
-      <text x="358" y="160" fill="#6E7681" font-size="14">REST · JWT auth</text>
+    <!-- stations -->
+    <g class="f3" style="animation-delay:.1s">
+      <rect x="70" y="94" width="188" height="48" rx="5" fill="#0E2A1B" stroke="#F6F4ED" stroke-opacity="0.16"/>
+      <text x="164" y="118" text-anchor="middle" font-family="system-ui,'Segoe UI',sans-serif"
+            font-size="14" fill="#F6F4ED">React · TypeScript</text>
+      <text x="164" y="134" text-anchor="middle" font-family="ui-monospace,Menlo,Consolas,monospace"
+            font-size="9.5" letter-spacing="2.4" fill="#F6F4ED" fill-opacity="0.4">BROWSER</text>
     </g>
 
-    <!-- DATA -->
-    <g>
-      <rect x="628" y="76" width="240" height="112" rx="10" fill="#0E141B" stroke="#3FB950" stroke-opacity="0.35"/>
-      <rect x="628" y="76" width="240" height="112" rx="10" fill="none" stroke="#3FB950">
-        <animate attributeName="stroke-opacity" values="0;0.7;0" dur="6s" begin="3s" repeatCount="indefinite"/>
-      </rect>
-      <text x="648" y="104" fill="#3FB950" font-size="11" letter-spacing="1.5">DATA</text>
-      <text x="648" y="134" fill="#C9D1D9" font-size="17">MongoDB</text>
-      <text x="648" y="160" fill="#6E7681" font-size="14">Mongoose · Atlas</text>
+    <g class="f3" style="animation-delay:.2s">
+      <rect x="420" y="94" width="120" height="48" rx="5" fill="#0E2A1B" stroke="#F6F4ED" stroke-opacity="0.16"/>
+      <text x="480" y="118" text-anchor="middle" font-family="system-ui,'Segoe UI',sans-serif"
+            font-size="14" fill="#F6F4ED">Express</text>
+      <text x="480" y="134" text-anchor="middle" font-family="ui-monospace,Menlo,Consolas,monospace"
+            font-size="9.5" letter-spacing="2.4" fill="#F6F4ED" fill-opacity="0.4">ROUTE</text>
     </g>
 
-    <rect x="0.5" y="0.5" width="899" height="229" rx="14" fill="none" stroke="#222A35"/>
+    <g class="f3" style="animation-delay:.3s">
+      <rect x="700" y="94" width="140" height="48" rx="5" fill="#0E2A1B" stroke="#E3B44F" stroke-opacity="0.4"/>
+      <text x="770" y="118" text-anchor="middle" font-family="system-ui,'Segoe UI',sans-serif"
+            font-size="14" fill="#F6F4ED">JWT · validate</text>
+      <text x="770" y="134" text-anchor="middle" font-family="ui-monospace,Menlo,Consolas,monospace"
+            font-size="9.5" letter-spacing="2.4" fill="#E3B44F" fill-opacity="0.75">THE GATE</text>
+    </g>
+
+    <g class="f3" style="animation-delay:.4s">
+      <rect x="1000" y="94" width="130" height="48" rx="5" fill="#0E2A1B" stroke="#F6F4ED" stroke-opacity="0.16"/>
+      <text x="1065" y="118" text-anchor="middle" font-family="system-ui,'Segoe UI',sans-serif"
+            font-size="14" fill="#F6F4ED">MongoDB</text>
+      <text x="1065" y="134" text-anchor="middle" font-family="ui-monospace,Menlo,Consolas,monospace"
+            font-size="9.5" letter-spacing="2.4" fill="#F6F4ED" fill-opacity="0.4">SCHEMA</text>
+    </g>
+
+    <!-- the request, out and back -->
+    <circle class="pkt" r="4.5" fill="#17B95E">
+      <animate attributeName="cx" dur="4.2s" repeatCount="indefinite"
+               keyTimes="0;0.30;0.34;0.64;0.70;1"
+               values="258;420;540;700;840;1000"/>
+      <animate attributeName="cy" dur="4.2s" repeatCount="indefinite" values="118;118"/>
+      <animate attributeName="opacity" dur="4.2s" repeatCount="indefinite"
+               keyTimes="0;0.04;0.72;0.78;1" values="0;1;1;0;0"/>
+    </circle>
+    <circle class="pkt" r="9" fill="#17B95E" opacity="0.18">
+      <animate attributeName="cx" dur="4.2s" repeatCount="indefinite"
+               keyTimes="0;0.30;0.34;0.64;0.70;1"
+               values="258;420;540;700;840;1000"/>
+      <animate attributeName="cy" dur="4.2s" repeatCount="indefinite" values="118;118"/>
+      <animate attributeName="opacity" dur="4.2s" repeatCount="indefinite"
+               keyTimes="0;0.04;0.72;0.78;1" values="0;0.18;0.18;0;0"/>
+    </circle>
+    <!-- the response, coming home along a lower line -->
+    <circle class="pkt" r="3.5" fill="#E3B44F">
+      <animate attributeName="cx" dur="4.2s" repeatCount="indefinite"
+               keyTimes="0;0.74;1" values="1000;1000;258"/>
+      <animate attributeName="cy" dur="4.2s" repeatCount="indefinite" values="160;160"/>
+      <animate attributeName="opacity" dur="4.2s" repeatCount="indefinite"
+               keyTimes="0;0.74;0.78;0.97;1" values="0;0;1;1;0"/>
+    </circle>
+
+    <text x="70" y="188" font-family="Georgia,'Times New Roman',serif" font-style="italic"
+          font-size="15" fill="#F6F4ED" fill-opacity="0.42">Every one of those boxes is a place it can fail. That is where the work is.</text>
+
+    <rect width="1200" height="210" filter="url(#grain3)" opacity="0.05"/>
+    <rect x=".5" y=".5" width="1199" height="209" rx="10" fill="none" stroke="#F6F4ED" stroke-opacity="0.12"/>
   </g>
 </svg>
